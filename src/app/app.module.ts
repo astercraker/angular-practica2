@@ -17,6 +17,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { FiltroComponent } from './components/filtro/filtro.component';
+import { DetalleComponent } from './detalle/detalle.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { FiltroComponent } from './components/filtro/filtro.component';
     RegistroComponent,
     DropdownComponent,
     FiltroComponent,
+    DetalleComponent,
   ],
   imports: [
     BrowserModule,

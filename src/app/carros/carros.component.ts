@@ -10,26 +10,28 @@ export class CarrosComponent {
   vehiculosService = inject(VehiculosService);
   vehiculos: any = [];
   vehiculosFiltrados: any = [];
-  filter = '';
+  filter: string | null = null;
+  firstTime = false;
 
   constructor() {
     this.vehiculosService.getFilter.subscribe((filter) => {
       this.filter = filter;
-      let vehiculosFilter = this.vehiculos.filter((user: any) =>
-        user.title.toLowerCase().includes(this.filter.toLowerCase())
-      );
-      console.log(vehiculosFilter.length);
-      if (vehiculosFilter.length === 0) {
-        this.vehiculosFiltrados = this.vehiculos;
-      } else {
-        this.vehiculosFiltrados = vehiculosFilter;
-      }
+      console.log(filter);
     });
   }
   ngOnInit(): void {
     this.vehiculosService.getVehicles().subscribe((data: any[]) => {
-      this.vehiculos = data;
+      // this.vehiculos = data;
       this.vehiculosFiltrados = data;
+      console.log('getVehicles', data);
+    });
+    this.vehiculosService.filteredData.subscribe((data: any) => {
+      console.log('Change filter', data);
+      // console.log(vehiculosFilter.length);
+      if (data && this.firstTime) {
+        this.vehiculosFiltrados = data;
+      }
+      this.firstTime = true;
     });
   }
 }

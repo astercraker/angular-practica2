@@ -1,0 +1,54 @@
+.principal {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  margin: 0px; /* Margen a los lados */
+  display: flex;
+  flex-direction: row; /* Cambia a flexbox para alinear verticalmente */
+  min-height: 70vh;
+  justify-content: space-around;
+}
+
+.layout {
+  min-width: 600px;
+  padding: 10px;
+}
+
+h1 {
+  font-size: 1.5rem;
+}
+
+label {
+  visibility: hidden;
+}
+
+.form-control {
+  background: white;
+  padding: 10px;
+  font-family: "Montserrat";
+  font-weight: 400;
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.link-register a {
+  float: left;
+  margin-top: 20px;
+  color: blue;
+  font-size: 1.5rem;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  float: right;
+}
+
+.invalid-feedback {
+  display: block;
+}

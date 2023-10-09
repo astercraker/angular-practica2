@@ -1,0 +1,58 @@
+<div class="principal">
+  <div class="layout">
+    <h1>INICIAR SESION</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <div>
+          <label for="email">Correo electrónico</label>
+          <div>
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Nombre usuario"
+              formControlName="email"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+          </div>
+          <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <p *ngIf="f['email'].errors['required']">Email es requerido</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div>
+          <label for="password">Contraseña</label>
+          <div>
+            <input
+              class="form-control"
+              formControlName="password"
+              type="password"
+              placeholder="Contraseña"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+          </div>
+          <div
+            *ngIf="submitted && f['password'].errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f['password'].errors['required']">
+              Password es requerido
+            </div>
+            <div *ngIf="f['password'].errors['minlength']">
+              El password debe de ser de al menos 6 caracteres
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+              No debe exceder los 40 caracteres
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="link-register">
+        <a routerLink="/registro">Registrarse</a>
+      </div>
+      <button type="submit">
+        INICIAR SESIÓN<span class="MuiTouchRipple-root css-w0pj6f"></span>
+      </button>
+    </form>
+  </div>
+</div>

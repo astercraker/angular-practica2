@@ -1,0 +1,39 @@
+<header>
+  <div class="logo">
+    <img src="assets/Logo.jpeg" alt="Logo" />
+  </div>
+  <nav>
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li>
+        <a (click)="toggleVehiculosMenu()">Vehículos</a>
+        <ul class="submenu" *ngIf="mostrarVehiculos">
+          <li><a routerLink="/carros" routerLinkActive="active">Carro</a></li>
+          <li>
+            <a routerLink="/Camiones" routerLinkActive="active">Camiones</a>
+          </li>
+          <li>
+            <a routerLink="/Camionetas" routerLinkActive="active">Camionetas</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div class="search">
+    <input type="text" placeholder="Buscar" (keyup.enter)="buscar()" />
+  </div>
+
+  <div *ngIf="!user?.username" class="login">
+    <a routerLink="/login">Iniciar sesión</a>
+  </div>
+  <div *ngIf="user?.username" class="login">
+    {{ user?.username }}
+    <img [src]="user.image" alt="user image" width="32px" height="32px" />
+  </div>
+
+  <!-- <div [ngIf]="user" class="login">
+    <h1>Si tiene</h1>
+  </div> -->
+</header>
+
+<router-outlet></router-outlet>

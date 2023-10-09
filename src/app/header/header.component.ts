@@ -25,11 +25,16 @@ export class HeaderComponent {
       .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe((res: any) => {
         this.vehicleService.setFilter(res);
+        // this.vehicleService.filterDataByTerm(res);
       });
   }
 
   toggleVehiculosMenu() {
     this.mostrarVehiculos = !this.mostrarVehiculos;
+  }
+
+  closeSession() {
+    this.userService.closeSession();
   }
 
   buscar() {

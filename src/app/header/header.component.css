@@ -71,3 +71,6 @@ li:hover a::before {
   left: 0;
   right: 0;
 }
+.close-sesion {
+  border: none;
+}

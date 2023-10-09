@@ -29,6 +29,10 @@
   <div *ngIf="user?.username" class="login">
     {{ user?.username }}
     <img [src]="user.image" alt="user image" width="32px" height="32px" />
+
+    <button class="close-session" (click)="closeSession()">
+      Cerrar sesión
+    </button>
   </div>
 
   <!-- <div [ngIf]="user" class="login">

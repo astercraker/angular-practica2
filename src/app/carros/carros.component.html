@@ -1,5 +1,10 @@
 <div class="contenedor container-fluid row">
-  <div class="card m-2" style="width: 17rem" *ngFor="let vehiculo of vehiculos">
+  {{ filter }}
+  <div
+    class="card m-2"
+    style="width: 17rem"
+    *ngFor="let vehiculo of vehiculosFiltrados"
+  >
     <img
       src="https://d3bmp4azzreq60.cloudfront.net/fit-in/2000x2000/vendetunave/images/vehiculos/{{
         vehiculo.nameImage

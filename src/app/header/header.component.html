@@ -20,7 +20,7 @@
     </ul>
   </nav>
   <div class="search">
-    <input type="text" placeholder="Buscar" (keyup.enter)="buscar()" />
+    <input type="text" placeholder="Buscar" [formControl]="searchTerm" />
   </div>
 
   <div *ngIf="!user?.username" class="login">

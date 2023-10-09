@@ -1,5 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { VehiculosService } from '../services/vehiculos.service';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 
 @Component({
   selector: 'app-header',
@@ -8,14 +11,22 @@ import { UserService } from '../services/user.service';
 })
 export class HeaderComponent {
   userService = inject(UserService);
+  vehicleService = inject(VehiculosService);
   constructor() {
     this.userService.getUser.subscribe((user) => (this.user = user));
   }
 
   mostrarVehiculos = false;
   user: any = null;
+  searchTerm = new FormControl('');
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.searchTerm.valueChanges
+      .pipe(debounceTime(500), distinctUntilChanged())
+      .subscribe((res: any) => {
+        this.vehicleService.setFilter(res);
+      });
+  }
 
   toggleVehiculosMenu() {
     this.mostrarVehiculos = !this.mostrarVehiculos;

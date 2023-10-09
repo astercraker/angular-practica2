@@ -32,6 +32,7 @@ nav li {
   background-color: #333;
   list-style: none;
   padding: 10px;
+  z-index: 9999;
 }
 
 nav li:hover .submenu {

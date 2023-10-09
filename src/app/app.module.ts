@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { RegistroComponent } from './registro/registro.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
+import { FiltroComponent } from './components/filtro/filtro.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
     LoginComponent,
     RegistroComponent,
     DropdownComponent,
+    FiltroComponent,
   ],
   imports: [
     BrowserModule,
